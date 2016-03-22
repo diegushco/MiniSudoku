@@ -1,0 +1,30 @@
+QLineEdit {
+    border: 2px solid gray;
+    border-radius: 10px;
+    padding: 0 8px;
+    background: white;
+    selection-background-color: darkgray;
+    width: 13px;
+    height: 60px;
+    font: bold 30px;
+    text-align: center;
+}
+QMenuBar {
+    background: gray;
+}
+QMenuBar::Item {
+    background: gray;
+    color: white;
+}
+QMenuBar::item:selected{
+    background: #444;
+    border-radius: 3px;
+}
+QMenu{
+    background: gray;
+    color: white;
+    }
+QMenu::item:selected{
+background: #999;
+border: 1px solid blue;
+    }
