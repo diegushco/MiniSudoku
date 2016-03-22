@@ -31,7 +31,7 @@ class MainWindow(QMainWindow):
         btn = QPushButton("Probar", self)
 
         #Labels
-        self.label = QLabel("", self)
+        self.label = QLabel("Completa el MiniSudoku", self)
 
         #Edits del juego
         self.lineEdit = QLineEdit()
@@ -124,7 +124,9 @@ class MainWindow(QMainWindow):
 
         #Conexiones
         btn.clicked.connect(self._valida)
-
+        self.acerca.triggered.connect(self._acerca)
+        self.salir.triggered.connect(self.close)
+        self.nuevo.triggered.connect(self._nuevo)
 
     def _crearAcciones(self):
         self.nuevo = QAction("Nuevo", self)
@@ -133,6 +135,8 @@ class MainWindow(QMainWindow):
         self.sugerencia.setShortcut("Ctrl+S")
         self.salir = QAction("Salir", self)
         self.salir.setShortcut("Ctrl+Q")
+        self.reglas = QAction("Reglas", self)
+        self.reglas.setShortcut("Ctrl+R")
         self.acerca = QAction("Acerca de", self)
 
     def _crearMenu(self, menu_bar):
@@ -140,8 +144,9 @@ class MainWindow(QMainWindow):
         menu_archivo.addAction(self.nuevo)
         menu_archivo.addAction(self.sugerencia)
         menu_archivo.addAction(self.salir)
-        menu_acerca = menu_bar.addMenu("A&cerca de")
-        menu_acerca.addAction(self.acerca)
+        menu_ayuda = menu_bar.addMenu("A&yuda")
+        menu_ayuda.addAction(self.reglas)
+        menu_ayuda.addAction(self.acerca)
 
     def _valida(self):
         c00 = self.lineEdit.text()
@@ -416,3 +421,27 @@ class MainWindow(QMainWindow):
         if (self.errorLineaV):
             self.label.setText("Tiene error en una linea vertical")
             self.errorLineaV = False
+
+    def _nuevo(self):
+        self.lineEdit.setText("")
+        self.lineEdit1.setText("")
+        self.lineEdit2.setText("")
+        self.lineEdit3.setText("")
+        self.lineEdit4.setText("")
+        self.lineEdit5.setText("")
+        self.lineEdit6.setText("")
+        self.lineEdit7.setText("")
+        self.lineEdit8.setText("")
+        self.lineEdit9.setText("")
+        self.lineEdit10.setText("")
+        self.lineEdit11.setText("")
+        self.lineEdit12.setText("")
+        self.lineEdit13.setText("")
+        self.lineEdit14.setText("")
+        self.lineEdit15.setText("")
+        self.label.setText("Completa el MiniSudoku")
+
+
+    def _acerca(self):
+        QMessageBox.information(self, self.tr("Realizado por"),
+             "<h2>Ing. Diego Guerrero</h2><h3>Venezuela</h3>zorro8815@gmail.com" )
