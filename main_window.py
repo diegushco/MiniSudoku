@@ -20,6 +20,8 @@ class MainWindow(QMainWindow):
         self.setWindowTitle(self.tr("Juego Mini Sudoku"))
         self.setMinimumSize(400, 400)
         self.errorGrupo = False
+        self.errorLineaH = False
+        self.errorLineaV = False
         #creando menu
         menu = self.menuBar()
         self._crearAcciones()
@@ -29,7 +31,7 @@ class MainWindow(QMainWindow):
         btn = QPushButton("Probar", self)
 
         #Labels
-        label = QLabel("", self)
+        self.label = QLabel("", self)
 
         #Edits del juego
         self.lineEdit = QLineEdit()
@@ -108,7 +110,7 @@ class MainWindow(QMainWindow):
         gridLayout.addWidget(self.lineEdit13, 3, 1)
         gridLayout.addWidget(self.lineEdit14, 3, 2)
         gridLayout.addWidget(self.lineEdit15, 3, 3)
-        gridLayout.addWidget(label, 4, 0, 1, 4)
+        gridLayout.addWidget(self.label, 4, 0, 1, 4)
 
         #agregando boton a layout horizontal a la grilla
         layout_horizontal.addWidget(btn)
@@ -142,7 +144,6 @@ class MainWindow(QMainWindow):
         menu_acerca.addAction(self.acerca)
 
     def _valida(self):
-        #QMessageBox.information(self, self.tr("Mensaje"),"<h3>probando</h3>" )
         c00 = self.lineEdit.text()
         c01 = self.lineEdit1.text()
         c02 = self.lineEdit2.text()
@@ -222,7 +223,7 @@ class MainWindow(QMainWindow):
             print "rojo"
             self.errorGrupo = True
 
-        #Validando tercer grupo diferentes numeros
+        #Validando cuarto grupo diferentes numeros
         if (c22 == c23):
             print "rojo"
         if (c22 == c32):
@@ -241,11 +242,177 @@ class MainWindow(QMainWindow):
             print "rojo"
             self.errorGrupo = True
 
+        #validando primera linea horizontal
+        if (c00 == c01):
+            print "rojo"
+            self.errorLineaH = True
+        if (c00 == c02):
+            print "rojo"
+            self.errorLineaH = True
+        if (c00 == c03):
+            print "rojo"
+            self.errorLineaH = True
+        if (c01 == c02):
+            print "rojo"
+            self.errorLineaH = True
+        if (c01 == c03):
+            print "rojo"
+            self.errorLineaH = True
+        if (c02 == c03):
+            print "rojo"
+            self.errorLineaH = True
+
+        #validando segunda linea horizontal
+        if (c10 == c11):
+            print "rojo"
+            self.errorLineaH = True
+        if (c10 == c12):
+            print "rojo"
+            self.errorLineaH = True
+        if (c10 == c13):
+            print "rojo"
+            self.errorLineaH = True
+        if (c11 == c12):
+            print "rojo"
+            self.errorLineaH = True
+        if (c11 == c13):
+            print "rojo"
+            self.errorLineaH = True
+        if (c12 == c13):
+            print "rojo"
+            self.errorLineaH = True
+
+        #validando tercera linea horizontal
+        if (c20 == c21):
+            print "rojo"
+            self.errorLineaH = True
+        if (c20 == c22):
+            print "rojo"
+            self.errorLineaH = True
+        if (c20 == c23):
+            print "rojo"
+            self.errorLineaH = True
+        if (c21 == c22):
+            print "rojo"
+            self.errorLineaH = True
+        if (c21 == c23):
+            print "rojo"
+            self.errorLineaH = True
+        if (c22 == c23):
+            print "rojo"
+            self.errorLineaH = True
+
+        #validando cuarta linea horizontal
+        if (c30 == c31):
+            print "rojo"
+            self.errorLineaH = True
+        if (c30 == c32):
+            print "rojo"
+            self.errorLineaH = True
+        if (c30 == c33):
+            print "rojo"
+            self.errorLineaH = True
+        if (c31 == c32):
+            print "rojo"
+            self.errorLineaH = True
+        if (c31 == c33):
+            print "rojo"
+            self.errorLineaH = True
+        if (c32 == c33):
+            print "rojo"
+            self.errorLineaH = True
+
+        #validando primera linea vertical
+        if (c00 == c10):
+            print "rojo"
+            self.errorLineaV = True
+        if (c00 == c20):
+            print "rojo"
+            self.errorLineaV = True
+        if (c00 == c30):
+            print "rojo"
+            self.errorLineaV = True
+        if (c10 == c20):
+            print "rojo"
+            self.errorLineaV = True
+        if (c10 == c30):
+            print "rojo"
+            self.errorLineaV = True
+        if (c20 == c30):
+            print "rojo"
+            self.errorLineaV = True
+
+        #validando segunda linea vertical
+        if (c01 == c11):
+            print "rojo"
+            self.errorLineaV = True
+        if (c01 == c21):
+            print "rojo"
+            self.errorLineaV = True
+        if (c01 == c31):
+            print "rojo"
+            self.errorLineaV = True
+        if (c11 == c21):
+            print "rojo"
+            self.errorLineaV = True
+        if (c11 == c31):
+            print "rojo"
+            self.errorLineaV = True
+        if (c21 == c31):
+            print "rojo"
+            self.errorLineaV = True
+
+        #validando tercera linea vertical
+        if (c02 == c12):
+            print "rojo"
+            self.errorLineaV = True
+        if (c02 == c22):
+            print "rojo"
+            self.errorLineaV = True
+        if (c02 == c32):
+            print "rojo"
+            self.errorLineaV = True
+        if (c12 == c22):
+            print "rojo"
+            self.errorLineaV = True
+        if (c12 == c32):
+            print "rojo"
+            self.errorLineaV = True
+        if (c22 == c32):
+            print "rojo"
+            self.errorLineaV = True
+
+        #validando cuarta linea vertical
+        if (c03 == c13):
+            print "rojo"
+            self.errorLineaV = True
+        if (c03 == c23):
+            print "rojo"
+            self.errorLineaV = True
+        if (c03 == c33):
+            print "rojo"
+            self.errorLineaV = True
+        if (c13 == c23):
+            print "rojo"
+            self.errorLineaV = True
+        if (c13 == c33):
+            print "rojo"
+            self.errorLineaV = True
+        if (c23 == c33):
+            print "rojo"
+            self.errorLineaV = True
+
+        if(self.errorGrupo == False and self.errorLineaH == False and self.errorLineaV == False):
+            QMessageBox.information(self, self.tr("Has terminado"), "<h3>Muy Bien!! felicidades, has completado el MiniSudoku.</h3>" )
+
         if (self.errorGrupo):
             self.label.setText("Tiene error en uno o mas grupos")
             self.errorGrupo = False
 
+        if (self.errorLineaH):
+            self.label.setText("Tiene error en una linea horizontal")
+            self.errorLineaH = False
 
-
-
-
+        if (self.errorLineaV):
+            self.label.setText("Tiene error en una linea vertical")
+            self.errorLineaV = False
