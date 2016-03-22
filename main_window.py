@@ -85,6 +85,23 @@ class MainWindow(QMainWindow):
         self.lineEdit14.setMaxLength(1)
         self.lineEdit15.setMaxLength(1)
 
+        #obligando a que sea solo numero lo que ingresen
+        self.lineEdit.setInputMask("9")
+        self.lineEdit1.setInputMask("9")
+        self.lineEdit2.setInputMask("9")
+        self.lineEdit3.setInputMask("9")
+        self.lineEdit4.setInputMask("9")
+        self.lineEdit5.setInputMask("9")
+        self.lineEdit6.setInputMask("9")
+        self.lineEdit7.setInputMask("9")
+        self.lineEdit8.setInputMask("9")
+        self.lineEdit9.setInputMask("9")
+        self.lineEdit10.setInputMask("9")
+        self.lineEdit11.setInputMask("9")
+        self.lineEdit12.setInputMask("9")
+        self.lineEdit13.setInputMask("9")
+        self.lineEdit14.setInputMask("9")
+        self.lineEdit15.setInputMask("9")
 
         #Creando la grilla
         gridLayout = QGridLayout()
@@ -127,6 +144,9 @@ class MainWindow(QMainWindow):
         self.acerca.triggered.connect(self._acerca)
         self.salir.triggered.connect(self.close)
         self.nuevo.triggered.connect(self._nuevo)
+        self.reglas.triggered.connect(self._reglas)
+
+
 
     def _crearAcciones(self):
         self.nuevo = QAction("Nuevo", self)
@@ -445,3 +465,7 @@ class MainWindow(QMainWindow):
     def _acerca(self):
         QMessageBox.information(self, self.tr("Realizado por"),
              "<h2>Ing. Diego Guerrero</h2><h3>Venezuela</h3>zorro8815@gmail.com" )
+
+    def _reglas(self):
+        QMessageBox.information(self, self.tr("Reglas del Juego"),
+             ("<h3>MiniSudoku</h3>Las reglas del juego son: <ul><li>Solo debes ingresar numeros del 1 al 4</li><li>Ninguno de los numeros puede coincidir ni vertical ni horizontalmente<img src='imagen1.png' /></li><li>Tampoco puede coincidir los numeros en grupos de 4<img src='imagen2.png' /></li><li>Al terminar, dale en probar y comprueba tu solucion</li></ul>"))
