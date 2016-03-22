@@ -2,9 +2,13 @@
 from PyQt4.QtGui import (
     QMainWindow,
     QAction,
-    QMessageBox
+    QMessageBox,
+    QPushButton,
+    QWidget,
+    QGridLayout
     )
 from PyQt4.QtCore import Qt
+
 
 class MainWindow(QMainWindow):
 
@@ -17,6 +21,31 @@ class MainWindow(QMainWindow):
         menu = self.menuBar()
         self._crearAcciones()
         self._crearMenu(menu)
+
+        btn = QPushButton("1", self)
+        btn2 = QPushButton("2", self)
+        btn3 = QPushButton("3", self)
+        btn4 = QPushButton("4", self)
+        btn5= QPushButton("5", self)
+        btn6= QPushButton("6", self)
+
+        #Creando la grilla
+        gridLayout = QGridLayout()
+
+        #Creando el centralWidget
+        centralWidget = QWidget()
+
+        #agregando elementos a la grilla
+        gridLayout.addWidget(btn, 0, 0)
+        gridLayout.addWidget(btn2, 0, 1)
+        gridLayout.addWidget(btn3, 0, 2)
+        gridLayout.addWidget(btn4, 1, 0)
+        gridLayout.addWidget(btn5, 1, 1)
+        gridLayout.addWidget(btn6, 1, 2)
+
+        #asignando la grilla al central widget
+        self.setCentralWidget(centralWidget)
+        centralWidget.setLayout(gridLayout)
 
 
     def _crearAcciones(self):
